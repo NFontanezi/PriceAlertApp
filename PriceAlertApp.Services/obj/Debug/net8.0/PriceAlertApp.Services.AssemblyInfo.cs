@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PriceAlertApp.Services")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1710897fe295f218f391a282471ff0aa3b810d9b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+564a927d309930606d37b8b045ae37b903fa7828")]
 [assembly: System.Reflection.AssemblyProductAttribute("PriceAlertApp.Services")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PriceAlertApp.Services")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

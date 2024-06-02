@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "NXPoSnUtLE4=",
+  "dgSpecHash": "W3jH21n5CZw=",
   "success": true,
   "projectFilePath": "C:\\Users\\natalia.fontanezi\\Downloads\\personal\\Faculdade\\Projeto Integrado\\PriceAlertApp\\PriceAlertApp.Services\\PriceAlertApp.Services.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\natalia.fontanezi\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

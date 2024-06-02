@@ -1,0 +1,16 @@
+C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceAlertApp\PriceAlertApp.Services\obj\Debug\net8.0\PriceAlertApp.Services.csproj.AssemblyReference.cache
+C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceAlertApp\PriceAlertApp.Services\obj\Debug\net8.0\PriceAlertApp.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceAlertApp\PriceAlertApp.Services\obj\Debug\net8.0\PriceAlertApp.Services.AssemblyInfoInputs.cache
+C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceAlertApp\PriceAlertApp.Services\obj\Debug\net8.0\PriceAlertApp.Services.AssemblyInfo.cs
+C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceAlertApp\PriceAlertApp.Services\obj\Debug\net8.0\PriceAlertApp.Services.csproj.CoreCompileInputs.cache
+C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceAlertApp\PriceAlertApp.Services\obj\Debug\net8.0\PriceAlertApp.Services.sourcelink.json
+C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceAlertApp\PriceAlertApp.Services\bin\Debug\net8.0\PriceAlertApp.Services.deps.json
+C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceAlertApp\PriceAlertApp.Services\bin\Debug\net8.0\PriceAlertApp.Services.dll
+C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceAlertApp\PriceAlertApp.Services\bin\Debug\net8.0\PriceAlertApp.Services.pdb
+C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceAlertApp\PriceAlertApp.Services\bin\Debug\net8.0\PriceAlertApp.Models.dll
+C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceAlertApp\PriceAlertApp.Services\bin\Debug\net8.0\PriceAlertApp.Models.pdb
+C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceAlertApp\PriceAlertApp.Services\obj\Debug\net8.0\PriceAle.81805FBF.Up2Date
+C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceAlertApp\PriceAlertApp.Services\obj\Debug\net8.0\PriceAlertApp.Services.dll
+C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceAlertApp\PriceAlertApp.Services\obj\Debug\net8.0\refint\PriceAlertApp.Services.dll
+C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceAlertApp\PriceAlertApp.Services\obj\Debug\net8.0\PriceAlertApp.Services.pdb
+C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceAlertApp\PriceAlertApp.Services\obj\Debug\net8.0\ref\PriceAlertApp.Services.dll
