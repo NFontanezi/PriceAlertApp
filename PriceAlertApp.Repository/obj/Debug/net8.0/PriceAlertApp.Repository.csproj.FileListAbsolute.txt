@@ -10,3 +10,4 @@ C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceA
 C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceAlertApp\PriceAlertApp.Repository\obj\Debug\net8.0\refint\PriceAlertApp.Repository.dll
 C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceAlertApp\PriceAlertApp.Repository\obj\Debug\net8.0\PriceAlertApp.Repository.pdb
 C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceAlertApp\PriceAlertApp.Repository\obj\Debug\net8.0\ref\PriceAlertApp.Repository.dll
+C:\Users\natalia.fontanezi\Downloads\personal\Faculdade\Projeto Integrado\PriceAlertApp\PriceAlertApp.Repository\obj\Debug\net8.0\PriceAlertApp.Repository.csproj.AssemblyReference.cache

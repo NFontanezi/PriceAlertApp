@@ -1,44 +1,51 @@
 ﻿
-
-using PriceAlertApp.Models;
 using PriceAlertApp.Services.AlphaVantageApiServices;
 
 namespace PriceAlertApp.Services.Stocks
 {
     public class StockService : IStockService
     {
-        private readonly IAssetPriceService _assetService;
+        private readonly IAlphaWebApiExecutor _assetService;
         //private readonly IMailService _mailService;
 
         public StockService()
         {
-            _assetService = new AssetPriceService();
+            _assetService = new AlphaWebApiService();
             //  _mailService = new MailService();
         }
         public async Task CheckStockPrice(string stockName, double inputPriceMin, double inputPriceMax)
         {
-
-            var stockPrice = await _assetService.GetCurrentPrice(stockName.ToUpper());
-            var stock = new Stock();
-            stock.Name = stockName.ToUpper();
-            stock.Price = stockPrice;
-
-            var actionSale = string.Empty;
-
-            if (inputPriceMin.Equals(inputPriceMax))
-                Console.WriteLine("Prices can not be evaluated. Min and Max inputs should be differents");
-
-            if (stockPrice <= inputPriceMin)
+            var symbol = GetSymbol(stockName);
+            var stockData = await _assetService.GetStockPrice(symbol);
+            if (stockData != null)
             {
-                actionSale = "BUY";
-                //  _mailService.SendMail(stock, actionSale);
-            }
+                if (stockData.DailyCloses.Any())
+                {
+                    var actionSale = string.Empty;
 
-            if (stockPrice >= inputPriceMin)
-            {
-                actionSale = "SELL";
-                //  _mailService.SendMail(stock, actionSale);
+                    if (stockData.DailyCloses.First().Close <= inputPriceMin)
+                    {
+                        actionSale = "BUY";
+                        //  _mailService.SendMail(stock, actionSale);
+                    }
+
+                    if (stockData.DailyCloses.First().Close >= inputPriceMin)
+                    {
+                        actionSale = "SELL";
+                        //  _mailService.SendMail(stock, actionSale);
+                    }
+                }
             }
+        }
+
+        private string GetSymbol(string stockName)
+        {
+            if (stockName.Contains("."))
+                return stockName;
+
+            else
+                return stockName + ".SA";
+
         }
     }
 }
