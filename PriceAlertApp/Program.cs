@@ -50,7 +50,7 @@ namespace PriceAlert
 
 
                 Console.WriteLine("Alert running...");
-                await Task.Delay(5 * 1000 * 60);
+                await Task.Delay(5 * 1000);
 
             }
 

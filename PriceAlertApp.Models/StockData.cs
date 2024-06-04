@@ -1,7 +1,5 @@
 ﻿
 
-using System.ComponentModel;
-
 namespace PriceAlertApp.Models
 {
     public class StockData

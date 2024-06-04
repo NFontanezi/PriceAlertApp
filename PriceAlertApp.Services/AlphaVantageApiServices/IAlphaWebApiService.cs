@@ -3,7 +3,7 @@ using PriceAlertApp.Models;
 
 namespace PriceAlertApp.Services.AlphaVantageApiServices
 {
-    public interface IAlphaWebApiExecutor
+    public interface IAlphaWebApiService
     {
         Task<StockData> GetStockPrice(string assetName);
     }

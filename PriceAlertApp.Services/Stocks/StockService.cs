@@ -1,17 +1,18 @@
 ﻿
+using AlertApp.Services.Mail;
 using PriceAlertApp.Services.AlphaVantageApiServices;
 
 namespace PriceAlertApp.Services.Stocks
 {
     public class StockService : IStockService
     {
-        private readonly IAlphaWebApiExecutor _assetService;
-        //private readonly IMailService _mailService;
+        private readonly IAlphaWebApiService _assetService;
+        private readonly IMailService _mailService;
 
         public StockService()
         {
             _assetService = new AlphaWebApiService();
-            //  _mailService = new MailService();
+            _mailService = new MailService();
         }
         public async Task CheckStockPrice(string stockName, double inputPriceMin, double inputPriceMax)
         {
@@ -26,13 +27,13 @@ namespace PriceAlertApp.Services.Stocks
                     if (stockData.DailyCloses.First().Close <= inputPriceMin)
                     {
                         actionSale = "BUY";
-                        //  _mailService.SendMail(stock, actionSale);
+                        await _mailService.SendAlertEmail(stockData, actionSale, inputPriceMin);
                     }
 
-                    if (stockData.DailyCloses.First().Close >= inputPriceMin)
+                    if (stockData.DailyCloses.First().Close >= inputPriceMax)
                     {
                         actionSale = "SELL";
-                        //  _mailService.SendMail(stock, actionSale);
+                       await _mailService.SendAlertEmail(stockData, actionSale, inputPriceMax);
                     }
                 }
             }

@@ -4,7 +4,7 @@ using PriceAlertApp.Models;
 
 namespace PriceAlertApp.Services.AlphaVantageApiServices
 {
-    public class AlphaWebApiService : IAlphaWebApiExecutor
+    public class AlphaWebApiService : IAlphaWebApiService
     {
         private readonly AlphaWebApiExecutor _alphaClient;
 

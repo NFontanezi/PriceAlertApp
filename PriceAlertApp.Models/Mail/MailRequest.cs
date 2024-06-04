@@ -1,5 +1,4 @@
-﻿
-namespace PriceAlertApp.Models
+﻿namespace PriceAlertApp.Models.Mail
 {
     public class MailRequest
     {
