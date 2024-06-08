@@ -1,21 +1,11 @@
-﻿
-using AlertApp.Model;
-using MailKit.Security;
+﻿using MailKit.Security;
 using MimeKit;
 using PriceAlertApp.Models.Mail;
 
-namespace AlertApp.Services.Mail
+namespace PriceAlertApp.Services.Mail
 {
     public class MailServiceClient : IMailServiceClient
     {
-        private readonly MailSettings _emailSettings;
- 
-
-        public MailServiceClient()
-        {
-            _emailSettings = new MailSettings();
-
-        }
 
         public async Task SendEmailAsync(MailRequest mailRequest)
         {
@@ -24,7 +14,7 @@ namespace AlertApp.Services.Mail
                 var email = new MimeMessage
                 {
                     Subject = mailRequest.Subject,
-                    Sender = MailboxAddress.Parse(_emailSettings.Mail)
+                    Sender = MailboxAddress.Parse(mailRequest.Credential.Mail)
                 };
                 mailRequest.ToEmails.ForEach(recipient => email.To.Add(MailboxAddress.Parse(recipient)));
 
@@ -32,15 +22,17 @@ namespace AlertApp.Services.Mail
                 email.Body = builder.ToMessageBody();
 
                 using var smtp = new MailKit.Net.Smtp.SmtpClient();
-                smtp.Connect(_emailSettings.Host, _emailSettings.Port, SecureSocketOptions.StartTls);
-                smtp.Authenticate(_emailSettings.Mail, _emailSettings.Password);
+                smtp.Connect(mailRequest.Credential.Host, mailRequest.Credential.Port, SecureSocketOptions.StartTls);
+                smtp.Authenticate(mailRequest.Credential.Mail, mailRequest.Credential.Password);
                 await Task.FromResult(smtp.Send(email));
                 smtp.Disconnect(true);
+
+                Console.WriteLine($"Sending alert email...");
             }
 
             catch (Exception ex)
             {
-                Console.WriteLine($"Error during send mail. Details: {ex.Message}. {ex}");
+                Console.WriteLine($"Error during send mail\n {ex.Message}");
             }
         }
 

@@ -1,26 +1,31 @@
-﻿
-
-
-using PriceAlertApp.Models;
+﻿using PriceAlertApp.Models;
 using PriceAlertApp.Models.Mail;
 
-namespace AlertApp.Services.Mail
+namespace PriceAlertApp.Services.Mail
 {
     public class MailService : IMailService
     {
-        private readonly IMailServiceClient _mailServiceClient;
+        private IMailServiceClient _mailServiceClient;
+        private MailCredential _credential;
+
         public MailService()
         {
+            Initialize(MailCredentialFactory.BuildCredential());
+        }
+
+        private void Initialize(MailCredential credential)
+        {
+            _credential = credential;
             _mailServiceClient = new MailServiceClient();
         }
 
         public async Task SendAlertEmail(StockData stockData, string actionSale, double input)
         {
             var mailRequest = new MailRequest();
+            mailRequest.Credential = _credential;
             await BuildEmail(stockData, actionSale, input, mailRequest);
 
-
-           await _mailServiceClient.SendEmailAsync(mailRequest);
+            await _mailServiceClient.SendEmailAsync(mailRequest);
 
         }
 
@@ -32,7 +37,7 @@ namespace AlertApp.Services.Mail
 
             messageText += "<p>Hi,</p>";
             messageText += $"<p>The limit price for {stockData.Symbol} was achieved!</p>";
-            messageText += $"<p>Stock price is Target price: {input}  {stockData.Symbol} was achieved!</p>";
+            messageText += $"<p>Stock price target price: {input}. Current Price: {stockData.DailyCloses.FirstOrDefault().Close} Action: {actionSale} </p>";
             messageText += "<br />";
 
             mail.Subject = subject;

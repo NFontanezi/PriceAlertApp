@@ -1,6 +1,6 @@
 ﻿using PriceAlertApp.Models;
 
-namespace AlertApp.Services.Mail
+namespace PriceAlertApp.Services.Mail
 {
     public interface IMailService
     {

@@ -4,21 +4,23 @@ namespace PriceAlertApp.Models.Mail
 {
     public class MailCredential
     {
-        private readonly string _userName;
-        private readonly string _password;
-        private readonly string _domain;
-
-        public MailCredential(string userName, string password, string domain)
+        public MailCredential(string mail, string displayName, string password, string host, int port)
         {
-            _userName = userName;
-            _password = password;
-            _domain = domain;
+            Mail = mail;
+            DisplayName = displayName;
+            Password = password;
+            Host = host;
+            Port = port;
         }
 
-        public string UserName => _userName;
+        public string Mail { get; private set; }
 
-        public string Password => _password;
+        public string DisplayName { get; private set; }
 
-        public string Domain => _domain;
+        public string Password { get; private set; }
+
+        public string Host { get; private set; }
+
+        public int Port { get; private set; }
     }
 }

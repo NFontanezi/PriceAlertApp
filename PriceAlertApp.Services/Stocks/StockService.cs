@@ -1,6 +1,5 @@
-﻿
-using AlertApp.Services.Mail;
-using PriceAlertApp.Services.AlphaVantageApiServices;
+﻿using PriceAlertApp.Services.AlphaVantageApiServices;
+using PriceAlertApp.Services.Mail;
 
 namespace PriceAlertApp.Services.Stocks
 {

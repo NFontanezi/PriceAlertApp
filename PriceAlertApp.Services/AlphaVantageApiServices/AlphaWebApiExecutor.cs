@@ -1,11 +1,6 @@
-﻿
-
-using Nancy.Json;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using PriceAlertApp.Models;
 using System.Net;
-using System.Text.RegularExpressions;
 
 namespace PriceAlertApp.Services.AlphaVantageApiServices
 {
@@ -61,7 +56,6 @@ namespace PriceAlertApp.Services.AlphaVantageApiServices
             }
 
             return stockData;
-
 
 
         }
