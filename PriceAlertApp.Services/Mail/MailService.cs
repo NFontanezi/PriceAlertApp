@@ -8,15 +8,15 @@ namespace PriceAlertApp.Services.Mail
         private IMailServiceClient _mailServiceClient;
         private MailCredential _credential;
 
-        public MailService()
+        public MailService(IMailServiceClient mailServiceClient)
         {
+            _mailServiceClient = mailServiceClient; 
             Initialize(MailCredentialFactory.BuildCredential());
         }
 
         private void Initialize(MailCredential credential)
         {
             _credential = credential;
-            _mailServiceClient = new MailServiceClient();
         }
 
         public async Task SendAlertEmail(StockData stockData, string actionSale, double input)

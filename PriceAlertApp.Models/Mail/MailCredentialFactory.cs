@@ -1,23 +1,20 @@
-﻿
-using PriceAlertApp.Services;
-using Microsoft.Extensions.Configuration;
+﻿using PriceAlertApp.Services;
+using PriceAlertApp.Models.Services;
 
 namespace PriceAlertApp.Models.Mail
 {
-    public class MailCredentialFactory
+    public class MailCredentialFactory : IMailCredentialFactory
     {
         private static IAppSettingsHelper _appSettingsHelper;
-        private static IConfiguration _config;
 
 
-        public static void MailCredentialFactoryConfigure(IAppSettingsHelper appSettingsHelper)
+        public void Configure(IAppSettingsHelper appSettingsHelper)
         {
-            _appSettingsHelper = new AppSettingsHelper(_config) ?? throw new ArgumentNullException(nameof(appSettingsHelper));
+            _appSettingsHelper = appSettingsHelper;
         }
 
         public static MailCredential BuildCredential()
         {
-            MailCredentialFactoryConfigure(_appSettingsHelper);
             var user = _appSettingsHelper.GetAppSettings("MailCredentials:UserName");
             var password = _appSettingsHelper.GetAppSettings("MailCredentials:Password");
             var domain = _appSettingsHelper.GetAppSettings("MailCredentials:Domain");

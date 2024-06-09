@@ -7,7 +7,7 @@ namespace PriceAlertApp.Services
     {
         private IConfiguration _config;
 
-        public AppSettingsHelper(IConfiguration config)
+        public AppSettingsHelper()
         {
             try
             {

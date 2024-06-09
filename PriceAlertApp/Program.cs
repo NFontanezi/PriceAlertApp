@@ -1,4 +1,11 @@
-﻿using PriceAlertApp.Services.Stocks;
+﻿using Microsoft.Extensions.DependencyInjection;
+using PriceAlertApp.Models.Mail;
+using PriceAlertApp.Models.Services;
+using PriceAlertApp.Services;
+using PriceAlertApp.Services.AlphaVantageApiServices;
+using PriceAlertApp.Services.Mail;
+using PriceAlertApp.Services.Stocks;
+using System;
 using System.Text.RegularExpressions;
 
 namespace PriceAlert
@@ -13,16 +20,17 @@ namespace PriceAlert
 
         private readonly IStockService _loader;
 
-        public Program()
+        public Program(IStockService loader)
         {
-            _loader = new StockService();
+            _loader = loader;
+
         }
 
 
         static async Task Main(string[] args)
         {
-
-            var program = new Program();
+            var serviceProvider = BuildServiceProvider();
+            var program = serviceProvider.GetService<Program>();
 
             if (args != null && args.Length > 0)
             {
@@ -41,6 +49,7 @@ namespace PriceAlert
 
         public async Task RunAsync()
         {
+
             Console.WriteLine("Alert app started...");
 
             while (_run)
@@ -64,10 +73,11 @@ namespace PriceAlert
 
         }
 
+
         private bool ValidateInputs()
         {
             try
-            {   
+            {
                 var args = _argument.Split('_');
 
                 if (IsRegexSuccess(_argument))
@@ -110,7 +120,31 @@ namespace PriceAlert
                 return true;
             else
                 return false;
+        }
 
+        private static ServiceProvider BuildServiceProvider()
+        {
+            //configs
+            var serviceCollection = new ServiceCollection();
+            serviceCollection.AddSingleton<Program>();
+            serviceCollection.AddSingleton<IAppSettingsHelper, AppSettingsHelper>();
+            serviceCollection.AddSingleton<IMailCredentialFactory, MailCredentialFactory>();
+
+            //services
+            serviceCollection.AddTransient<IStockService, StockService>();
+            serviceCollection.AddTransient<IMailService, MailService>();
+            serviceCollection.AddTransient<IMailServiceClient, MailServiceClient>();
+            serviceCollection.AddTransient<IAlphaWebApiService, AlphaWebApiService>();
+            serviceCollection.AddTransient<IAlphaWebApiExecutor, AlphaWebApiExecutor>();
+
+            var serviceProvider = serviceCollection.BuildServiceProvider();
+
+            // email config
+            var appSettingsHelper = serviceProvider.GetService<IAppSettingsHelper>();
+            var mailCredentialFactory = serviceProvider.GetService<IMailCredentialFactory>();
+            mailCredentialFactory.Configure(appSettingsHelper);
+
+            return serviceProvider;
         }
     }
 }

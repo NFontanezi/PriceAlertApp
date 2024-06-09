@@ -8,10 +8,10 @@ namespace PriceAlertApp.Services.Stocks
         private readonly IAlphaWebApiService _assetService;
         private readonly IMailService _mailService;
 
-        public StockService()
+        public StockService(IAlphaWebApiService assetService, IMailService mailService)
         {
-            _assetService = new AlphaWebApiService();
-            _mailService = new MailService();
+            _assetService = assetService;
+            _mailService = mailService;
         }
         public async Task CheckStockPrice(string stockName, double inputPriceMin, double inputPriceMax)
         {

@@ -4,7 +4,7 @@ using System.Net;
 
 namespace PriceAlertApp.Services.AlphaVantageApiServices
 {
-    public class AlphaWebApiExecutor
+    public class AlphaWebApiExecutor : IAlphaWebApiExecutor
     {
         private readonly string _baseUrl = @"https://www.alphavantage.co/";
         private readonly string _apiKey = "LH5K76VQPNWWGHDT";
@@ -36,7 +36,7 @@ namespace PriceAlertApp.Services.AlphaVantageApiServices
             return default(T);
         }
 
-        public static StockData ExtractStockData(string jsonString)
+        private static StockData ExtractStockData(string jsonString)
         {
             var jsonObject = JObject.Parse(jsonString);
 

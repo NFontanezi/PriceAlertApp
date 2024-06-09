@@ -6,11 +6,11 @@ namespace PriceAlertApp.Services.AlphaVantageApiServices
 {
     public class AlphaWebApiService : IAlphaWebApiService
     {
-        private readonly AlphaWebApiExecutor _alphaClient;
+        private readonly IAlphaWebApiExecutor _alphaClient;
 
-        public AlphaWebApiService()
+        public AlphaWebApiService(IAlphaWebApiExecutor alphaClient)
         {
-            _alphaClient = new AlphaWebApiExecutor();
+            _alphaClient = alphaClient;
         }
 
         public async Task<StockData?> GetStockPrice(string symbol)
