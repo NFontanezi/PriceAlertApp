@@ -1,7 +1,6 @@
-﻿using PriceAlertApp.Services;
-using PriceAlertApp.Models.Services;
+﻿using PriceAlertApp.Models.Mail;
 
-namespace PriceAlertApp.Models.Mail
+namespace PriceAlertApp.Services.Mail
 {
     public class MailCredentialFactory : IMailCredentialFactory
     {

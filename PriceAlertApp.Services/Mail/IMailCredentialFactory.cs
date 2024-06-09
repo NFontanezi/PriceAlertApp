@@ -1,6 +1,6 @@
-﻿using PriceAlertApp.Services;
+﻿
 
-namespace PriceAlertApp.Models.Services
+namespace PriceAlertApp.Services.Mail
 {
     public interface IMailCredentialFactory
     {

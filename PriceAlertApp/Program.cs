@@ -1,11 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using PriceAlertApp.Models.Mail;
-using PriceAlertApp.Models.Services;
+using PriceAlertApp.Console.Configuration;
 using PriceAlertApp.Services;
 using PriceAlertApp.Services.AlphaVantageApiServices;
 using PriceAlertApp.Services.Mail;
 using PriceAlertApp.Services.Stocks;
-using System;
 using System.Text.RegularExpressions;
 
 namespace PriceAlert
@@ -13,7 +11,7 @@ namespace PriceAlert
     public class Program
     {
         private static bool _run = true;
-        private static string _argument = string.Empty; // "RunPriceAlert_PETR4_2.34_35"; 
+        private static string _argument = string.Empty; //"RunPriceAlert_PETR4_2.34_35"; 
         private static double _inputPriceMin;
         private static double _inputPriceMax;
         private static string _stock = string.Empty;
@@ -29,7 +27,7 @@ namespace PriceAlert
 
         static async Task Main(string[] args)
         {
-            var serviceProvider = BuildServiceProvider();
+            var serviceProvider = PriceAlertDependencyInjection.BuildServiceProvider();
             var program = serviceProvider.GetService<Program>();
 
             if (args != null && args.Length > 0)
@@ -65,10 +63,8 @@ namespace PriceAlert
                 else
                     await _loader.CheckStockPrice(_stock, _inputPriceMin, _inputPriceMax);
 
-
-                Console.WriteLine("Alert running...");
                 await Task.Delay(5 * 60 * 1000);
-
+                Console.WriteLine("Alert running...");
             }
 
         }

@@ -1,5 +1,4 @@
-﻿using PriceAlertApp.Models.Services;
-
+﻿
 namespace PriceAlertApp.Models.Mail
 {
     public class MailCredential 
