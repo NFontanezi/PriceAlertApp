@@ -25,6 +25,7 @@ namespace PriceAlertApp.Services.Mail
             mailRequest.Credential = _credential;
             await BuildEmail(stockData, actionSale, input, mailRequest);
 
+            Console.WriteLine($"Sending email alert: {stockData.Symbol}");
             await _mailServiceClient.SendEmailAsync(mailRequest);
 
         }
