@@ -27,12 +27,12 @@ namespace PriceAlertApp.Services.Mail
                 await Task.FromResult(smtp.Send(email));
                 smtp.Disconnect(true);
 
-                Console.WriteLine($"Alert email sent");
+                Console.WriteLine($"Email alert sent");
             }
 
             catch (Exception ex)
             {
-                Console.WriteLine($"Error during send mail\n {ex.Message}");
+                Console.WriteLine($"Error during email\n {ex.Message}");
             }
         }
 
