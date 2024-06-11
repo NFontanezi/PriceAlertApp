@@ -39,6 +39,9 @@ namespace PriceAlertApp.Services.Stocks
                         await _mailService.SendAlertEmail(stockData, actionSale, inputPriceMax);
                     }
                 }
+
+                else
+                    Console.WriteLine("Price not available");
             }
         }
 
