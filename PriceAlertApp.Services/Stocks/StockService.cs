@@ -17,7 +17,11 @@ namespace PriceAlertApp.Services.Stocks
         {
             var symbol = GetSymbol(stockName);
             var stockData = await _assetService.GetStockPrice(symbol);
-            if (stockData != null)
+
+            if (stockData == null)
+                Console.WriteLine("Stock data not found");
+
+            else
             {
                 if (stockData.DailyCloses.Any())
                 {
@@ -32,7 +36,7 @@ namespace PriceAlertApp.Services.Stocks
                     if (stockData.DailyCloses.First().Close >= inputPriceMax)
                     {
                         actionSale = "SELL";
-                       await _mailService.SendAlertEmail(stockData, actionSale, inputPriceMax);
+                        await _mailService.SendAlertEmail(stockData, actionSale, inputPriceMax);
                     }
                 }
             }

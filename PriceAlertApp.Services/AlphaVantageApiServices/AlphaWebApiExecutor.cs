@@ -10,7 +10,7 @@ namespace PriceAlertApp.Services.AlphaVantageApiServices
         private readonly string _apiKey = "LH5K76VQPNWWGHDT";
         private readonly HttpClient _httpClient = new();
 
-        public async Task<T> InvokeGet<T>(string symbol)
+        public async Task<T> Get<T>(string symbol)
         {
             var path = $"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={symbol}&interval=5min&apikey={_apiKey}";
 
@@ -30,7 +30,7 @@ namespace PriceAlertApp.Services.AlphaVantageApiServices
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"WebException occurred: {ex.GetType()}: {ex.Message}");
+                Console.WriteLine($"Api connection erro occurred: {ex.GetType()}: {ex.Message}");
             }
 
             return default(T);

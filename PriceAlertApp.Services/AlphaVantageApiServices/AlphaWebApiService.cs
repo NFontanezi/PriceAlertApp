@@ -16,7 +16,7 @@ namespace PriceAlertApp.Services.AlphaVantageApiServices
         public async Task<StockData?> GetStockPrice(string symbol)
         {
 
-            return await _alphaClient.InvokeGet<StockData?>(symbol);
+            return await _alphaClient.Get<StockData?>(symbol);
         }
 
     }

@@ -3,6 +3,6 @@ namespace PriceAlertApp.Services.AlphaVantageApiServices
 {
     public interface IAlphaWebApiExecutor
     {
-        Task<T> InvokeGet<T>(string symbol);
+        Task<T> Get<T>(string symbol);
     }
 }
